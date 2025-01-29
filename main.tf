@@ -7,6 +7,9 @@ terraform {
     }
   }
 
+  required_version = ">= 1.2.0"  # Keep this line
+}
+
   # Specify required providers and their versions
   required_providers {
     aws = {
