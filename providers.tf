@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 provider "google" {
-  credentials = var.gcp_credentials
-  project     = var.gcp_project_id
-  region      = var.gcp_region
+  credentials = jsondecode(env("GOOGLE_CREDENTIALS"))  # Read from environment variable
+  project     = env("GCP_PROJECT_ID")  # Read from environment variable
+  region      = env("GCP_REGION")
 }
