@@ -1,31 +1,57 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
+terraform {
+  cloud {
+    organization = "your-org-name"
+    workspaces {
+      name = "your-workspace-name"
+    }
+  }
 
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
+  }
+}
+
+# AWS Provider Configuration
 provider "aws" {
-  region = var.region
+  region = "us-east-1"
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+# GCP Provider Configuration
+provider "google" {
+  project = "your-gcp-project-id"
+  region  = "us-central1"
 }
 
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
+# AWS EC2 Instance
+resource "aws_instance" "aws_vm" {
+  ami           = "ami-0c55b159cbfafe1f0" # Ubuntu 20.04 in us-east-1
+  instance_type = "t2.micro"
 
   tags = {
-    Name = var.instance_name
+    Name = "TerraformAWS"
+  }
+}
+
+# GCP Compute Instance
+resource "google_compute_instance" "gcp_vm" {
+  name         = "terraform-gcp"
+  machine_type = "e2-micro"
+  zone         = "us-central1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+
+  network_interface {
+    network = "default"
   }
 }
