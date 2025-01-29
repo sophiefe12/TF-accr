@@ -1,27 +1,18 @@
-terraform {
-  cloud {
-    organization = "your-org-name"
-    workspaces {
-      name = "your-workspace-name"
-    }
-  }
-}
-
 # AWS EC2 Instance
 resource "aws_instance" "aws_vm" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Ubuntu 20.04
+  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (change as needed)
   instance_type = "t2.micro"
 
   tags = {
-    Name = "TerraformAWS"
+    Name = "AWS-VM"
   }
 }
 
-# GCP Compute Instance
+# GCP Compute Engine Instance
 resource "google_compute_instance" "gcp_vm" {
-  name         = "terraform-gcp"
-  machine_type = "e2-micro"
-  zone         = "${var.gcp_region}-a"
+  name         = "gcp-vm"
+  machine_type = "f1-micro"
+  zone         = "${getenv("GCP_REGION")}-a"
 
   boot_disk {
     initialize_params {
@@ -31,5 +22,6 @@ resource "google_compute_instance" "gcp_vm" {
 
   network_interface {
     network = "default"
+    access_config {}
   }
 }
