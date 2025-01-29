@@ -1,18 +1,33 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-variable "region" {
+variable "aws_region" {
   description = "AWS region"
-  default     = "us-west-1"
+  type        = string
+  default     = "us-east-1"
 }
 
-variable "instance_type" {
-  description = "Type of EC2 instance to provision"
-  default     = "t2.micro"
+variable "aws_access_key" {
+  description = "AWS Access Key"
+  type        = string
+  sensitive   = true
 }
 
-variable "instance_name" {
-  description = "EC2 instance name"
-  default     = "Provisioned by Terraform"
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+  type        = string
+  sensitive   = true
 }
 
+variable "gcp_project_id" {
+  description = "GCP Project ID"
+  type        = string
+}
+
+variable "gcp_region" {
+  description = "GCP Region"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "gcp_credentials_file" {
+  description = "Path to the GCP service account JSON key file"
+  type        = string
+}
