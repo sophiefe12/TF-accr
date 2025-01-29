@@ -1,12 +1,12 @@
 terraform {
   cloud {
-    organization = "HC_Sophie"  # Replace with your HCP organization name
+    organization = "HC_Sophie"  
     workspaces {
-      name = "hcp-ACME"  # Replace with your HCP workspace name
+      name = "hcp-ACME" 
     }
   }
 
-  required_version = ">= 1.2.0"  # Keep this line
+  required_version = ">= 1.2.0"  
 }
 
 # Configure the AWS provider
@@ -25,7 +25,7 @@ provider "google" {
 
 # AWS EC2 Instance
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Replace with a valid AMI ID for your region
+  ami           = "ami-0c55b159cbfafe1f0"  
   instance_type = "t2.micro"
 
   tags = {
@@ -41,7 +41,7 @@ resource "google_compute_instance" "example" {
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-10"  # Replace with a valid image for your project
+      image = "debian-cloud/debian-10"  
     }
   }
 
