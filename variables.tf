@@ -1,15 +1,4 @@
-variable "GCP_PROJECT_ID" {
-  type = string
-}
-
-variable "GCP_REGION" {
-  type = string
-}
-
-variable "GOOGLE_CREDENTIALS" {
-  type = string
-}
-
+# AWS Variables
 variable "AWS_ACCESS_KEY_ID" {
   type = string
 }
@@ -19,5 +8,18 @@ variable "AWS_SECRET_ACCESS_KEY" {
 }
 
 variable "AWS_REGION" {
+  type = string
+}
+
+# GCP Variables
+variable "GCP_PROJECT_ID" {
+  type = string
+}
+
+variable "GCP_REGION" {
+  type = string
+}
+
+variable "GOOGLE_CREDENTIALS" {
   type = string
 }
