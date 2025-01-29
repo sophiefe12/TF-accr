@@ -1,6 +1,7 @@
 variable "aws_region" {
   description = "AWS region"
   type        = string
+  default     = "us-east-1"  # Default, but Terraform Cloud can override
 }
 
 variable "gcp_project_id" {
@@ -9,8 +10,9 @@ variable "gcp_project_id" {
 }
 
 variable "gcp_region" {
-  description = "GCP Region"
+  description = "GCP region"
   type        = string
+  default     = "us-central1"
 }
 
 variable "gcp_credentials" {
