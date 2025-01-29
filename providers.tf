@@ -1,9 +1,9 @@
 provider "aws" {
-  region = var.aws_region
+  region = var.AWS_REGION
 }
 
 provider "google" {
-  credentials = jsondecode(env("GOOGLE_CREDENTIALS"))  # Read from environment variable
-  project     = env("GCP_PROJECT_ID")  # Read from environment variable
-  region      = env("GCP_REGION")
+  credentials = var.GOOGLE_CREDENTIALS
+  project     = var.GCP_PROJECT_ID
+  region      = var.GCP_REGION
 }
