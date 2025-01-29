@@ -1,4 +1,3 @@
-# Configure Terraform to use HCP as the backend
 terraform {
   cloud {
     organization = "HC_Sophie"  # Replace with your HCP organization name
@@ -8,22 +7,6 @@ terraform {
   }
 
   required_version = ">= 1.2.0"  # Keep this line
-}
-
-  # Specify required providers and their versions
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5"  # Use the appropriate AWS provider version
-    }
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 4.0"  # Use the appropriate GCP provider version
-    }
-  }
-
-  # Specify the minimum Terraform version required
-  required_version = ">= 1.2.0"
 }
 
 # Configure the AWS provider
