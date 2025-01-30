@@ -6,7 +6,19 @@ terraform {
     }
     google = {
       source  = "hashicorp/google"
-      version = "~> 4.0"
+      version = "~> 5.0"
     }
   }
+}
+
+provider "aws" {
+  region     = getenv("AWS_REGION")
+  access_key = getenv("AWS_ACCESS_KEY_ID")
+  secret_key = getenv("AWS_SECRET_ACCESS_KEY")
+}
+
+provider "google" {
+  project     = getenv("GCP_PROJECT_ID")
+  region      = getenv("GCP_REGION")
+  credentials = getenv("GOOGLE_CREDENTIALS")
 }
