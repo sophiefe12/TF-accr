@@ -20,5 +20,5 @@ provider "aws" {
 provider "google" {
   project     = "$GCP_PROJECT_ID"
   region      = "$GCP_REGION"
-  credentials = "$GOOGLE_CREDENTIALS"
+  credentials = file("$GOOGLE_CREDENTIALS")
 }
