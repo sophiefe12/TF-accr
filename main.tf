@@ -1,6 +1,6 @@
 # AWS EC2 Instance
 resource "aws_instance" "aws_vm" {
-  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (Change as needed)
+  ami           = "ami-000d95aa3e1de7cc7" # Amazon Linux AMI (Change as needed)
   instance_type = "t2.micro"
 
   tags = {
