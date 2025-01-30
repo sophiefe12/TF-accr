@@ -1,6 +1,6 @@
 # AWS EC2 Instance
 resource "aws_instance" "aws_vm" {
-  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (Change if needed)
+  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (Change as needed)
   instance_type = "t2.micro"
 
   tags = {
@@ -24,15 +24,4 @@ resource "google_compute_instance" "gcp_vm" {
     network = "default"
     access_config {}
   }
-}
-
-# Outputs to Display Public IPs
-output "aws_vm_public_ip" {
-  description = "Public IP of the AWS VM"
-  value       = aws_instance.aws_vm.public_ip
-}
-
-output "gcp_vm_public_ip" {
-  description = "Public IP of the GCP VM"
-  value       = google_compute_instance.gcp_vm.network_interface.0.access_config.0.nat_ip
 }
