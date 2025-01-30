@@ -13,7 +13,7 @@ resource "google_compute_instance" "gcp_vm" {
   name         = "gcp-vm"
   machine_type = "f1-micro"
   zone         = "${var.gcp_region}-a"
-  project      = env("GCP_PROJECT_ID")
+  project      = var.gcp_project_id
 
   boot_disk {
     initialize_params {
