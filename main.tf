@@ -13,8 +13,7 @@ resource "google_compute_instance" "gcp_vm" {
   name         = "gcp-vm"
   machine_type = "f1-micro"
   zone         = "${var.gcp_region}-a"
-  project      = var.gcp_project_id  
-}
+  project      = var.gcp_project_id
 
   boot_disk {
     initialize_params {
@@ -24,6 +23,9 @@ resource "google_compute_instance" "gcp_vm" {
 
   network_interface {
     network = "default"
-    access_config {}
+
+    access_config {
+      // This block is required for external IP assignment
+    }
   }
 }
