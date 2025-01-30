@@ -1,4 +1,4 @@
-# AWS EC2 Instance
+ # AWS EC2 Instance
 resource "aws_instance" "aws_vm" {
   ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (Change as needed)
   instance_type = "t2.micro"
@@ -12,7 +12,7 @@ resource "aws_instance" "aws_vm" {
 resource "google_compute_instance" "gcp_vm" {
   name         = "gcp-vm"
   machine_type = "f1-micro"
-  zone         = "${var.GCP_REGION}-a"
+  zone         = "${GCP_REGION}-a"
 
   boot_disk {
     initialize_params {
