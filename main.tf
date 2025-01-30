@@ -1,53 +1,38 @@
-terraform {
-  cloud {
-    organization = "HC_Sophie"  
-    workspaces {
-      name = "hcp-ACME" 
-    }
-  }
-
-  required_version = ">= 1.2.0"  
-}
-
-# Configure the AWS provider
-provider "aws" {
-  region     = var.AWS_REGION
-  access_key = var.AWS_ACCESS_KEY_ID
-  secret_key = var.AWS_SECRET_ACCESS_KEY
-}
-
-# Configure the GCP provider
-provider "google" {
-  project     = var.GCP_PROJECT_ID
-  region      = var.GCP_REGION
-  credentials = var.GOOGLE_CREDENTIALS
-}
-
 # AWS EC2 Instance
-resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"  
+resource "aws_instance" "aws_vm" {
+  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux AMI (Change if needed)
   instance_type = "t2.micro"
 
   tags = {
-    Name = "example-instance"
+    Name = "AWS-VM"
   }
 }
 
-# GCP Compute Instance
-resource "google_compute_instance" "example" {
-  name         = "example-instance"
-  machine_type = "e2-micro"
+# GCP Compute Engine Instance
+resource "google_compute_instance" "gcp_vm" {
+  name         = "gcp-vm"
+  machine_type = "f1-micro"
   zone         = "${var.GCP_REGION}-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-10"  
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     network = "default"
-    access_config {
-    }
+    access_config {}
   }
+}
+
+# Outputs to Display Public IPs
+output "aws_vm_public_ip" {
+  description = "Public IP of the AWS VM"
+  value       = aws_instance.aws_vm.public_ip
+}
+
+output "gcp_vm_public_ip" {
+  description = "Public IP of the GCP VM"
+  value       = google_compute_instance.gcp_vm.network_interface.0.access_config.0.nat_ip
 }
