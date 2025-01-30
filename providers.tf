@@ -12,13 +12,13 @@ terraform {
 }
 
 provider "aws" {
-  region     = getenv("AWS_REGION")
-  access_key = getenv("AWS_ACCESS_KEY_ID")
-  secret_key = getenv("AWS_SECRET_ACCESS_KEY")
+  region     = var.AWS_REGION
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
 
 provider "google" {
-  project     = getenv("GCP_PROJECT_ID")
-  region      = getenv("GCP_REGION")
-  credentials = getenv("GOOGLE_CREDENTIALS")
+  project     = var.GCP_PROJECT_ID
+  region      = var.GCP_REGION
+  credentials = var.GOOGLE_CREDENTIALS
 }
