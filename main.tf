@@ -24,7 +24,6 @@ resource "google_compute_instance" "gcp_vm" {
     network = "default"
 
     access_config {
-      // This block is required for external IP assignment
     }
   }
 }
