@@ -14,9 +14,8 @@ The idea is to demonstrate how you can provision a simple compute instance in bo
 
 ## What are the prerequisites?
 
-- Terraform Cloud account.
-- Terraform CLI installed.
-- Cloud provider credentials for AWS/GCP/Azure.
+- HCP account
+- Cloud provider credentials for i.e. AWS/GCP/Azure
 - The values for `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `GOOGLE_CREDENTIALS`, and `GOOGLE_PROJECT` should be saved as environment variables on your workspace.
 
 Have fun 🤩🚀 
