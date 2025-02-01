@@ -1,15 +1,22 @@
-# Terraform Cloud Getting Started Guide Example
+# Overview
 
-This is an example Terraform configuration intended for use with the [Terraform Cloud Getting Started Guide](https://learn.hashicorp.com/terraform/cloud-gettingstarted/tfc_overview).
+This project demonstrates the use of Terraform for multi-cloud infrastructure provisioning, supporting AWS, GCP, and other cloud providers. It enables a company to transition from i.e. AWS dependency to a multi-cloud strategy, aligning with the company's merger. The goal is to showcase Infrastructure as Code (IaC) and Terraform Cloud's value over other tools like Ansible and custom scripts.
+
+## Features
+
+- Multi-cloud provisioning with Terraform.
+- Infrastructure as Code (IaC) for consistent deployment.
+- Integration with Terraform Cloud for automation and collaboration.
 
 ## What will this do?
 
-This is a Terraform configuration that will create an EC2 instance in your AWS account. 
-
-When you set up a Workspace on Terraform Cloud, you can link to this repository. Terraform Cloud can then run `terraform plan` and `terraform apply` automatically when changes are pushed. For more information on how Terraform Cloud interacts with Version Control Systems, see [our VCS documentation](https://www.terraform.io/docs/cloud/run/ui.html).
+The idea is to demonstrate how you can provision a simple compute instance in both AWS and GCP.
 
 ## What are the prerequisites?
 
-You must have an AWS account and provide your AWS Access Key ID and AWS Secret Access Key to Terraform Cloud. Terraform Cloud encrypts and stores variables using [Vault](https://www.vaultproject.io/). For more information on how to store variables in Terraform Cloud, see [our variable documentation](https://www.terraform.io/docs/cloud/workspaces/variables.html).
+- Terraform Cloud account.
+- Terraform CLI installed.
+- Cloud provider credentials for AWS/GCP/Azure.
+- The values for `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `GOOGLE_CREDENTIALS`, and `GOOGLE_PROJECT` should be saved as environment variables on your workspace.
 
-The values for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` should be saved as environment variables on your workspace.
+Have fun 🤩🚀 
