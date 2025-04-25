@@ -1,6 +1,6 @@
 # AWS EC2 Instance
 resource "aws_instance" "aws_vm" {
-  ami           = data.aws_ami.ubuntu 
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   security_groups = [aws_security_group.allow_web_traffic.name]
 
