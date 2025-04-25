@@ -8,3 +8,11 @@ variable "instance_type" {
   type        = string
   default     = "t2.large"
 }
+variable "port" {
+  type    = number
+  default = 80
+}
+variable "application_name" {
+  type        = string
+  default     = "accreditation"
+}
