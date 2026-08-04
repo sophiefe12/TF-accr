@@ -6,7 +6,7 @@ variable "region" {
 variable "instance_type" {
   description = "The type of EC2 instance to create"
   type        = string
-  default     = "t2.medium"
+  default     = "t2.small"
 }
 variable "port" {
   type    = number
